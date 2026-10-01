@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px) scale(.995); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(12px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.animate-slideIn {
+  animation: slideIn 300ms ease both;
+}
+
+.animated-border { position: relative; }
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(37,99,235,0.12), rgba(239,246,255,0.10), rgba(37,99,235,0.12));
+  background-size: 200% 100%;
+  filter: blur(8px);
+  opacity: 0.95;
+  transition: opacity .3s ease;
+  animation: shift 6s linear infinite;
+}
+.animated-border .card-inner { position: relative; z-index: 1; }
+@keyframes shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.max-h-44::-webkit-scrollbar,
+.max-h-36::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+.max-h-44::-webkit-scrollbar-thumb,
+.max-h-36::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.08);
+  border-radius: 9999px;
+}

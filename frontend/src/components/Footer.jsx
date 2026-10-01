@@ -1,0 +1,431 @@
+import React from 'react';
+import { footerStyles } from '../assets/dummyStyles';
+import logo from '../assets/logo.png';
+
+import {
+    Stethoscope,
+    ActivityIcon,
+    Phone,
+    Mail,
+    MapPin,
+    ArrowBigRight,
+    Send
+} from 'lucide-react';
+
+import {
+    FaFacebook,
+    FaTwitter,
+    FaInstagram,
+    FaLinkedin,
+    FaYoutube
+} from 'react-icons/fa';
+
+function Footer() {
+    const currentYear = new Date().getFullYear();
+
+    const quickLinks = [
+        { name: "Home", href: "/" },
+        { name: "Doctors", href: "/doctors" },
+        { name: "Services", href: "/services" },
+        { name: "Contact", href: "/contact" },
+        { name: "Appointments", href: "/appointments" },
+    ];
+
+    const services = [
+        { name: "Blood Pressure Check", href: "/services" },
+        { name: "Blood Sugar Test", href: "/services" },
+        { name: "Full Blood Count", href: "/services" },
+        { name: "X-Ray Scan", href: "/services" },
+        { name: "ECG Test", href: "/services" },
+    ];
+
+    const socialLinks = [
+        {
+            Icon: FaFacebook,
+            color: footerStyles.facebookColor,
+            name: "Facebook",
+            href: "https://www.facebook.com/people/Hexagon-Digital-Services/61567156598660/",
+        },
+        {
+            Icon: FaTwitter,
+            color: footerStyles.twitterColor,
+            name: "Twitter",
+            href: "https://www.twitter.com/hexagondigitalservices/",
+        },
+        {
+            Icon: FaInstagram,
+            color: footerStyles.instagramColor,
+            name: "Instagram",
+            href: "http://instagram.com/hexagondigitalservices?igsh=MWp2NG1oNTlibWVnZA%3D%3D",
+        },
+        {
+            Icon: FaLinkedin,
+            color: footerStyles.linkedinColor,
+            name: "LinkedIn",
+            href: "https://www.linkedin.com/company/hexagondigitalservices/",
+        },
+        {
+            Icon: FaYoutube,
+            color: footerStyles.youtubeColor,
+            name: "YouTube",
+            href: "https://youtube.com/@hexagondigitalservices?si=lxEFYNCP42t6AoDJ",
+        },
+    ];
+
+    return (
+        <footer className={footerStyles.footerContainer}>
+
+            {/* Floating Icon 1 */}
+            <div className={footerStyles.floatingIcon1}>
+                <Stethoscope
+                    className={footerStyles.stethoscopeIcon}
+                />
+            </div>
+
+            {/* Floating Icon 2 */}
+            <div
+                className={footerStyles.floatingIcon2}
+                style={{ animationDelay: "3s" }}
+            >
+                <ActivityIcon
+                    className={footerStyles.activityIcon}
+                />
+            </div>
+
+            <div className={footerStyles.mainContent}>
+
+                <div className={footerStyles.gridContainer}>
+
+                    {/* Company Section */}
+                    <div className={footerStyles.companySection}>
+
+                        <div className={footerStyles.logoContainer}>
+
+                            <div className={footerStyles.logoWrapper}>
+
+                                <div className={footerStyles.logoImageContainer}>
+                                    <img
+                                        src={logo}
+                                        alt="MediCare Logo"
+                                        className={footerStyles.logoImage}
+                                    />
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <h2 className={footerStyles.companyName}>
+                                    MediCare
+                                </h2>
+
+                                <p className={footerStyles.companyTagline}>
+                                    Healthcare Solutions
+                                </p>
+                            </div>
+
+                        </div>
+
+                        {/* Company Description */}
+                        <p className={footerStyles.companyDescription}>
+                            Your trusted partner in healthcare innovation.
+                            We're committed to providing exceptional medical
+                            care with cutting-edge technology and compassionate
+                            service.
+                        </p>
+
+                        {/* Contact Information */}
+                        <div className={footerStyles.contactContainer}>
+
+                            {/* Phone */}
+                            <div className={footerStyles.contactItem}>
+                                <div className={footerStyles.contactIconWrapper}>
+                                    <Phone
+                                        className={footerStyles.contactIcon}
+                                    />
+                                </div>
+
+                                <span className={footerStyles.contactText}>
+                                    +91 8092681375
+                                </span>
+                            </div>
+
+                            {/* Email */}
+                            <div className={footerStyles.contactItem}>
+                                <div className={footerStyles.contactIconWrapper}>
+                                    <Mail
+                                        className={footerStyles.contactIcon}
+                                    />
+                                </div>
+
+                                <span className={footerStyles.contactText}>
+                                    contact@medicare.com
+                                </span>
+                            </div>
+
+                            {/* Location */}
+                            <div className={footerStyles.contactItem}>
+                                <div className={footerStyles.contactIconWrapper}>
+                                    <MapPin
+                                        className={footerStyles.contactIcon}
+                                    />
+                                </div>
+
+                                <span className={footerStyles.contactText}>
+                                    Delhi, India
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className={footerStyles.linksSection}>
+
+                        <h3 className={footerStyles.sectionTitle}>
+                            Quick Links
+                        </h3>
+
+                        <ul className={footerStyles.linksList}>
+
+                            {quickLinks.map((link, index) => (
+                                <li
+                                    key={link.name}
+                                    className={footerStyles.linkItem}
+                                >
+                                    <a
+                                        href={link.href}
+                                        className={footerStyles.quickLink}
+                                        style={{
+                                            animationDelay: `${index * 60}ms`
+                                        }}
+                                    >
+
+                                        <div
+                                            className={
+                                                footerStyles.quickLinkIconWrapper
+                                            }
+                                        >
+                                            <ArrowBigRight
+                                                className={
+                                                    footerStyles.quickLinkIcon
+                                                }
+                                            />
+                                        </div>
+
+                                        <span>{link.name}</span>
+
+                                    </a>
+                                </li>
+                            ))}
+
+                        </ul>
+
+                    </div>
+
+                    {/* Services */}
+                    <div className={footerStyles.linksSection}>
+
+                        <h3 className={footerStyles.sectionTitle}>
+                            Our Services
+                        </h3>
+
+                        <ul className={footerStyles.linksList}>
+
+                            {services.map((service) => (
+                                <li key={service.name}>
+
+                                    <a
+                                        href={service.href}
+                                        className={footerStyles.serviceLink}
+                                    >
+
+                                        <div
+                                            className={
+                                                footerStyles.serviceIcon
+                                            }
+                                        ></div>
+
+                                        <span>{service.name}</span>
+
+                                    </a>
+
+                                </li>
+                            ))}
+
+                        </ul>
+
+                    </div>
+
+                    {/* Newsletter & Social */}
+                    <div className={footerStyles.newsletterSection}>
+
+                        <h3 className={footerStyles.newsletterTitle}>
+                            Stay Connected
+                        </h3>
+
+                        <p
+                            className={
+                                footerStyles.newsletterDescription
+                            }
+                        >
+                            Subscribe for health tips, medical updates,
+                            and wellness insights delivered to your inbox.
+                        </p>
+
+                        {/* Newsletter Form */}
+                        <div className={footerStyles.newsletterForm}>
+
+                            {/* Mobile Newsletter */}
+                            <div
+                                className={
+                                    footerStyles.mobileNewsletterContainer
+                                }
+                            >
+
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className={footerStyles.emailInput}
+                                />
+
+                                <button
+                                    className={
+                                        footerStyles.mobileSubscribeButton
+                                    }
+                                >
+                                    <Send
+                                        className={
+                                            footerStyles.mobileButtonIcon
+                                        }
+                                    />
+
+                                    Subscribe
+                                </button>
+
+                            </div>
+
+                            {/* Desktop Newsletter */}
+                            <div
+                                className={
+                                    footerStyles.desktopNewsletterContainer
+                                }
+                            >
+
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className={
+                                        footerStyles.desktopEmailInput
+                                    }
+                                />
+
+                                <button
+                                    className={
+                                        footerStyles.desktopSubscribeButton
+                                    }
+                                >
+
+                                    <Send
+                                        className={
+                                            footerStyles.desktopButtonIcon
+                                        }
+                                    />
+
+                                    <span
+                                        className={
+                                            footerStyles.desktopButtonText
+                                        }
+                                    >
+                                        Subscribe
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                            {/* Social Icons */}
+                            <div className={footerStyles.socialContainer}>
+
+                                {socialLinks.map(
+                                    ({ Icon, color, name, href }, index) => (
+                                        <a
+                                            key={name}
+                                            href={href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={name}
+                                            className={
+                                                footerStyles.socialLink
+                                            }
+                                            style={{
+                                                animationDelay:
+                                                    `${index * 120}ms`
+                                            }}
+                                        >
+
+                                            <div
+                                                className={
+                                                    footerStyles.socialIconBackground
+                                                }
+                                            ></div>
+
+                                            <Icon
+                                                className={`${footerStyles.socialIcon} ${color}`}
+                                            />
+
+                                        </a>
+                                    )
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {/* Bottom Section */}
+                <div className={footerStyles.bottomSection}>
+
+                    <div className={footerStyles.copyright}>
+
+                        <span>
+                            &copy; {currentYear} Medicare HealthCare.
+                        </span>
+
+                        <div className={footerStyles.designerText}>
+
+                            <span>
+                                Designed by
+                            </span>
+
+                            <a
+                                href="https://www.example.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={footerStyles.designerLink}
+                            >
+                                Your Designer Name
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {/* Animation Styles */}
+            <style>
+                {footerStyles.animationStyles}
+            </style>
+
+        </footer>
+    );
+}
+
+export default Footer;
+
